@@ -1,0 +1,13 @@
+Dockerfile
+.dockerignore
+node_modules
+build
+npm-debug.log
+README.md
+.svelte-kit
+.git
+.db-litestream
+data
+db
+db-shm
+db-wal

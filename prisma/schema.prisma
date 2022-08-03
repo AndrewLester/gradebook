@@ -11,38 +11,39 @@ datasource db {
 }
 
 model Teacher {
-    id             String   @id @default(cuid())
-    created_at     DateTime
+    id             String    @id @default(uuid())
+    created_at     DateTime  @default(now())
     first_name     String
     last_name      String
     middle_initial String?
-    courses        Course[]
+    sections       Section[]
 }
 
 model Student {
-    id             String       @id @default(cuid())
-    created_at     DateTime
+    id             String       @id @default(uuid())
+    created_at     DateTime     @default(now())
     first_name     String
     last_name      String
     middle_initial String?
-    courses        Enrollment[]
+    sections       Enrollment[]
 }
 
-model Course {
-    id         String       @id @default(cuid())
-    created_at DateTime
+model Section {
+    id         String       @id @default(uuid())
+    created_at DateTime     @default(now())
     name       String
-    Teacher    Teacher      @relation(fields: [teacher_id], references: [id])
+    teacher    Teacher      @relation(fields: [teacher_id], references: [id])
     teacher_id String
     students   Enrollment[]
 }
 
 model Enrollment {
-    student    Student @relation(fields: [student_id], references: [id])
+    student    Student  @relation(fields: [student_id], references: [id])
     student_id String
-    course     Course  @relation(fields: [course_id], references: [id])
-    course_id  String
+    section    Section  @relation(fields: [section_id], references: [id])
+    section_id String
+    created_at DateTime @default(now())
     grade      Int
 
-    @@id([student_id, course_id])
+    @@id([student_id, section_id])
 }

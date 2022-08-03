@@ -1,0 +1,90 @@
+:root {
+	--primary: #e0afa0;
+	--surface: #463f3a;
+	--text-color: #f4f3ee;
+	--text-color-dark: #222120;
+	--surface-lighter: #8a817c;
+	--surface-lightest: #bcb8b1;
+	--font-heading: 'Raleway', sans-serif;
+	--font-body: 'Inter', sans-serif;
+
+	--section-padding: 30px;
+	--h1-padding: 15px;
+	--h2-padding: 7.5px;
+	--h3-padding: 5px;
+	--p-padding: 2.5px;
+	--pill-radius: 20px;
+}
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	color: var(--text-color);
+	font-family: var(--font-body);
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	background-color: var(--surface);
+	--header-height: 55px;
+}
+
+body * {
+	font-size: 1.15rem;
+}
+
+p {
+	line-height: 1.5;
+	margin-block: var(--p-padding);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-heading);
+}
+
+h1 {
+	font-size: 3rem;
+	margin-block: var(--h1-padding);
+}
+
+h2 {
+	font-size: 2rem;
+	margin-block: var(--h2-padding);
+}
+
+h3 {
+	font-size: 1.5rem;
+	margin-block: var(--h3-padding);
+}
+
+form,
+section {
+	margin-block: var(--section-padding);
+}
+
+option,
+input,
+select {
+	color: var(--text-color-dark);
+}
+
+.required {
+	color: rgb(255, 91, 91);
+}
+
+label.required {
+	color: currentColor;
+}
+
+label.required::before {
+	content: '*';
+	color: rgb(255, 91, 91);
+}
