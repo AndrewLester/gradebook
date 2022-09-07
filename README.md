@@ -1,5 +1,5 @@
 # Gradebook CRUD
-## SvelteKit + Prisma + Litestream
+## SvelteKit + Prisma + Litestream + Fly
 
 ## Development
 Install dependencies
