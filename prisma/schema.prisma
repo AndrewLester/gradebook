@@ -38,9 +38,9 @@ model Section {
 }
 
 model Enrollment {
-    student    Student  @relation(fields: [student_id], references: [id])
+    student    Student  @relation(fields: [student_id], references: [id], onDelete: Cascade)
     student_id String
-    section    Section  @relation(fields: [section_id], references: [id])
+    section    Section  @relation(fields: [section_id], references: [id], onDelete: Cascade)
     section_id String
     created_at DateTime @default(now())
     grade      Int

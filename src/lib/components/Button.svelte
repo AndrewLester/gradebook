@@ -12,7 +12,7 @@ interface $$Props extends svelte.JSX.HTMLAttributes<HTMLElementTagNameMap[TagNam
 
 {#if as === 'a' && prefetch}
 	<!-- svelte-ignore a11y-missing-attribute -->
-	<a {...$$restProps} sveltekit:prefetch class="button"><slot /></a>
+	<a {...$$restProps} data-sveltekit-pretch class="button"><slot /></a>
 {:else}
 	<button {...$$restProps} class="button"><slot /></button>
 {/if}

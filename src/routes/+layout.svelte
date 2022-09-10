@@ -5,7 +5,7 @@ import '../app.css';
 
 <Header />
 
-<main>
+<main data-sveltekit-prefetch>
 	<slot />
 </main>
 

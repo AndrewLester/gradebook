@@ -1,7 +1,7 @@
 <script lang="ts">
+import { enhance } from '$app/forms';
 import Button from '$lib/components/Button.svelte';
 import StudentInfo from '$lib/components/StudentInfo.svelte';
-import { enhance } from '$lib/form';
 import type {
 	EnrollmentWithStudent,
 	TeacherWithSectionsAndSectionsWithStudents,
@@ -16,7 +16,7 @@ $: students = 'students' in section ? section.students : enrollments;
 </script>
 
 <div class="wrapper">
-	<a href="/sections/{section.id}" sveltekit:prefetch>
+	<a href="/sections/{section.id}">
 		{section.name}
 	</a>
 	{#if students.length > 0}
@@ -29,8 +29,7 @@ $: students = 'students' in section ? section.students : enrollments;
 		<p><em>No students</em></p>
 	{/if}
 	{#if controls}
-		<form use:enhance action="/sections.json?_method=DELETE" method="post" name="drop-section">
-			<input type="hidden" value={section.id} name="id" />
+		<form action="/sections/{section.id}?/deleteSection" method="post" use:enhance>
 			<Button as="button">Drop</Button>
 		</form>
 	{/if}
